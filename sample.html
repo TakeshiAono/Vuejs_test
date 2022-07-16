@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./sample.css">
+  <title>Document</title>  
+</head>
+
+<body>
+  <div id="student-list-example">
+    <form v-on:submit.prevent="addNewStudent">
+      <label for="new-todo">名前:</label>
+      <input
+        v-model="newName"
+      >
+      <label for="new-todo">コース:</label>
+      <input
+        v-model="newCourse"
+      >
+      <label for="new-todo">受講期:</label>
+      <input
+        v-model="newTerm"
+      >
+      <div><button>入力した生徒を追記する</button></di>
+    </form>
+
+    <ul>
+      <li
+        is="todo-item"
+        v-for="(todo, index) in todos"
+        v-bind:key="todo.id"
+        v-bind:title="todo.title"
+        v-bind:course="todo.course"
+      ></li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+  <script src="sample.js"></script>
+</body>
+
+</html>
